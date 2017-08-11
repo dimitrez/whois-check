@@ -48,7 +48,5 @@ def readDomainList(File):
         leftDays = check_domain(i)
         if check_time(leftDays,i) != 255:
             send_notify(i, leftDays)
-        else:
-            exit(0)
 
 readDomainList('domains.txt')
