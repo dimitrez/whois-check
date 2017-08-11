@@ -1,5 +1,7 @@
 import pythonwhois
 import datetime
+import time
+from random import randint
 from email.mime.text import MIMEText
 from subprocess import Popen, PIPE
 
@@ -43,7 +45,11 @@ def readDomainList(File):
     f = open(File)
     d = f.read().lower().split('\n')
     for i in d:
+        if i == '':
+            exit(0)
+        time.sleep(randint(5,15))
         leftDays = check_domain(i)
+        print("{0}, {1}".format(i,leftDays))
         if check_time(leftDays,i) != 255:
             send_notify(i, leftDays)
 
