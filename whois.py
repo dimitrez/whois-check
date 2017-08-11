@@ -42,9 +42,7 @@ def send_notify(domain, leftDays):
 def readDomainList(File):
     f = open(File)
     d = f.read().lower().split('\n')
-    print(d)
     for i in d:
-        print(i)
         leftDays = check_domain(i)
         if check_time(leftDays,i) != 255:
             send_notify(i, leftDays)
